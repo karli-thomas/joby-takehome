@@ -1,0 +1,14 @@
+.flight_table {
+  width: 80%;
+}
+
+.map {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}

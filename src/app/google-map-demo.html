@@ -1,0 +1,19 @@
+<google-map
+  height="400px"
+  width="80vw"
+  (mapClick)="moveMap($event)"
+  [center]="center"
+  [zoom]="zoom"
+  [options]="options"
+>
+  <map-marker
+    *ngFor="let airplanePosition of currentFleetPositions"
+
+    [options]="airplanePosition | planeMarker"
+  >
+  </map-marker>
+  <!-- <map-info-window>Info Window content</map-info-window> -->
+</google-map>
+
+
+<!-- (mapMousemove)="move($event)" -->
