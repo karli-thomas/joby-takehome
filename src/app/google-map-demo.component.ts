@@ -6,7 +6,7 @@ import { MapMarker, GoogleMap, MapInfoWindow } from '@angular/google-maps';
   templateUrl: 'google-map-demo.html',
 })
 export class GoogleMapDemoComponent {
-  // @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow = {};
+  @ViewChild(MapInfoWindow) infoWindow!: MapInfoWindow;
   @Input() currentFleetPositions: IAirplanePosition[] = [];
   center: google.maps.LatLngLiteral = { lat: 43, lng: -89 };
   zoom = 5;
@@ -19,14 +19,8 @@ export class GoogleMapDemoComponent {
     }
   }
 
-  // move(event: google.maps.MapMouseEvent) {
-  //   if (event.latLng) {
-  //     this.display = event.latLng.toJSON();
-  //   }
-  // }
-
-  // openInfoWindow(plane: object) {
-  //   this.infoWindow.open(plane.airplane_id);
-  // }
+  openInfoWindow(marker: MapMarker) {
+    this.infoWindow.open(marker);
+  }
 }
 

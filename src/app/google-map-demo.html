@@ -8,12 +8,13 @@
 >
   <map-marker
     *ngFor="let airplanePosition of currentFleetPositions"
-
     [options]="airplanePosition | planeMarker"
+    #marker="mapMarker"
+    (mapClick)="openInfoWindow(marker)"
   >
   </map-marker>
-  <!-- <map-info-window>Info Window content</map-info-window> -->
+  <map-info-window *ngFor="let airplane of currentFleetPositions">
+    Altitude : {{airplane.altitude_m}}m,<br>
+    Airspeed: {{airplane.speed_kph}}kph
+  </map-info-window>
 </google-map>
-
-
-<!-- (mapMousemove)="move($event)" -->

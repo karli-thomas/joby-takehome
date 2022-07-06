@@ -24,9 +24,7 @@
     <tr mat-header-row
       *matHeaderRowDef="['name', 'position', 'altitude', 'speed']">
     </tr>
-    <tr
-      mat-row
-      (click)="showMarker(row.airplane_id)"
+    <tr mat-row
       *matRowDef="let row; columns: ['name', 'position', 'altitude', 'speed'];"
     ></tr>
   </table>

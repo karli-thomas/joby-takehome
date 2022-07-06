@@ -66,7 +66,7 @@ export class PlanesDashboardComponent implements OnInit {
    * Each plane flies in a straight line based on its heading and velocity.
    */
   private startUpdatingFakeData(): void {
-    interval(1000).subscribe(_ => { // "_" means the function gets a value but we ignore it.
+    interval(2000).subscribe(_ => { // "_" means the function gets a value but we ignore it.
       this.currentFleetPositions.forEach((plane) => {
         const KPH_TO_MPS_CONVERSION = 1000 / 3600;
         const distance = plane.speed_kph * KPH_TO_MPS_CONVERSION; // Distance = Velocity * Time
@@ -91,14 +91,7 @@ export class PlanesDashboardComponent implements OnInit {
       // Emit the new positions to the stream
       this.currentFleetPositions.forEach((p) => {
         return this.airplanePositionsService$.next({ ...p })
-
-      }
-      );
+      });
     });
-  }
-
-
-  public showMarker(airplane_id: string): void {
-    console.log(airplane_id);
   }
 }
